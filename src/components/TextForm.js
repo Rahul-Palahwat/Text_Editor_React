@@ -6,6 +6,7 @@ export default function TextForm(props) {
     let newText = text.toUpperCase();
     // setText("You have clicked on handleUpClick");
     setText(newText);
+    props.showAlert("Converted to uppercase","success");
   };
 
   const handleLoClick = () => {
@@ -13,6 +14,7 @@ export default function TextForm(props) {
     let newText = text.toLowerCase();
     // setText("You have clicked on handleUpClick");
     setText(newText);
+    props.showAlert("Converted to lowercase","success");
   };
 
   const handleClClick = () => {
@@ -20,6 +22,7 @@ export default function TextForm(props) {
     let newText = "";
     // setText("You have clicked on handleUpClick");
     setText(newText);
+    props.showAlert("Cleared the textarea","success");
   };
 
   const handleCopy = () => {
@@ -27,11 +30,13 @@ export default function TextForm(props) {
     text.select();
     // text.setSelectionRange(0,9999);
     navigator.clipboard.writeText(text.value);
+    props.showAlert("Copied to clipboard","success");
   };
 
   const handleExtraSpaces = () => {
     let newText = text.split(/[ ]+/);
     setText(newText.join(" "));
+    props.showAlert("Removed extra spaces","success");
   };
 
   const handleOnChange = (event) => {
@@ -44,11 +49,11 @@ export default function TextForm(props) {
   //   setText("new text");//correct way
   return (
     <>
-      <div className="container" style={{color: props.mode==='light'?'black':'white'}}>
+      <div className="container" style={{color: props.mode==='light'?'#042743':'white'}}>
         <h1>{props.heading} </h1>
         <div className="mb-3">
           <textarea
-          style={{backgroundColor: props.mode==='light'?'white':'grey',color: props.mode==='light'?'black':'white'}}
+          style={{backgroundColor: props.mode==='light'?'white':'grey',color: props.mode==='light'?'#042743':'white'}}
             className="form-control"
             id="myBox"
             rows="8"
@@ -72,7 +77,7 @@ export default function TextForm(props) {
           Remove Extra Spaces
         </button>
       </div>
-      <div className="container my-3" style={{color: props.mode==='light'?'black':'white'}}>
+      <div className="container my-3" style={{color: props.mode==='light'?'#042743':'white'}}>
         <h2>Your text summary</h2>
         <p>
           <b>
