@@ -16,6 +16,20 @@ export default function TextForm(props) {
         setText(newText);
     }
 
+    const handleClClick=()=>{
+        // console.log("Upper Case was clicked");
+        let newText="";
+        // setText("You have clicked on handleUpClick");
+        setText(newText);
+    }
+
+    const handleEmailClick=()=>{
+        // console.log("Upper Case was clicked");
+        let newText=text.split(" ").includes("@");
+        // setText("You have clicked on handleUpClick");
+        setText(newText);
+    }
+
     const handleOnChange=(event)=>{
         // console.log("On change");
         setText(event.target.value);
@@ -34,6 +48,8 @@ export default function TextForm(props) {
       </div>
       <button className="btn btn-primary" onClick={handleUpClick}>Convert to Uppercase</button>
       <button className="btn btn-primary mx-2" onClick={handleLoClick}>Convert to LowerCase</button>
+      <button className="btn btn-primary mx-2" onClick={handleClClick}>Clear</button>
+      <button className="btn btn-primary mx-2" onClick={handleEmailClick}>Extract Email</button>
     </div>
     <div className="container my-3">
         <h2>Your text summary</h2>
